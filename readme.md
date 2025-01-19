@@ -68,7 +68,7 @@
 
    
 
-### 运行
+### 配置功能包
 
 ```
 mkdir -p ws/src
@@ -79,8 +79,18 @@ cd src
 git clone git@github.com:LianzhaoZhang/a1_cpp.git
 git clone --recursive git@github.com:ShuoYangRobotics/unitree_ros.git
 ```
+
 删掉ws/src/unitree/ros/unitree_legged_real文件夹
 
+将`ws/src/a1_cpp/CMakeLists.txt`中的`set(UNITREE_LEGGED_SDK_PATH "/home/zlz/ysMPC/unitree_legged_sdk")`修改为符合自己的路径
+
+在`~/.bashrc`中添加下面内容
+```bash
+export UNITREE_SDK_VERSION=3_2
+export UNITREE_PLATFORM="amd64"
+```
+
+### 运行
 ```
 catkin build -j
 source ./devel/setup.bash
